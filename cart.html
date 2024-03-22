@@ -1,0 +1,34 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cart Example</title>
+</head>
+<body>
+ <div class="cart-items"></div>
+
+ <script>
+    const CartItems = document.querySelector(".cart-items");
+
+    let cartTotal = 0;
+    function displayCartItems() {
+      const items = JSON.parse(localStorage.getItem("cart"));
+      items.forEach((item) => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart_item";
+        cartItem.innerHTML = `
+        <p class="cart_id">${item.id}</p>
+                 <p class="cart_title">${"sensational scent"}</p>
+                 <img src="${"WhatsApp Image 2023-11-22 at 00.49.55.jpeg"}" alt="${item.title}" class="cart_img" />
+                 <p class="cart_price">${899}</p>
+                 <p class="cart_delete">Delete</p>
+        `;
+        CartItems.appendChild(cartItem);
+      });
+    }
+
+    displayCartItems();
+ </script>
+</body>
+</html>
